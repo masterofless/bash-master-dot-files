@@ -1,0 +1,42 @@
+[user]
+    name = Andy Cohan
+    email = andy@cohan.org
+[core]
+    excludesfile = /home/afc25/dotfiles/.gitignore_global
+	filemode = false
+	autocrlf = false
+[diff]
+    tool = kdiff3
+	renames = true
+[color]
+	ui = true
+[alias]
+    unstage = reset HEAD
+    last = log -1 HEAD
+    viz = !qgit --all
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    lg = log -p
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    l = log --graph --decorate --pretty='format:%h %Cblue%d%Creset %Cgreen%an%Creset %s' --abbrev-commit --all
+    ls = ls-files
+    ma = checkout master
+    pu = pull
+    pul = pull
+    dif = diff --name-status
+    idff = diff
+    dns = diff --name-status
+    amend = commit --amend
+    atop = commit --amend -C HEAD
+[merge]
+    tool = kdiff3
+[mergetool "kdiff3"]
+    keepBackup = false
+    trustExitCode = false
+[gerrit]
+	createchangeid = true
+[status]
+    relativePaths = true

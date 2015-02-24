@@ -1,7 +1,3 @@
-alias gs='git status'
-alias lt='ls -lt'
-alias m=less
-
 export HISTSIZE=5000
 export HISTFILESIZE=5000
 export EDITOR=vim

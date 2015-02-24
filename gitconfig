@@ -2,14 +2,14 @@
     name = Andy Cohan
     email = andy@cohan.org
 [core]
-    excludesfile = /home/afc25/dotfiles/.gitignore_global
-	filemode = false
-	autocrlf = false
+    excludesfile = ~/.dotfiles/.gitignore_global
+    filemode = false
+    autocrlf = false
 [diff]
     tool = kdiff3
-	renames = true
+    renames = true
 [color]
-	ui = true
+    ui = true
 [alias]
     unstage = reset HEAD
     last = log -1 HEAD
@@ -37,6 +37,6 @@
     keepBackup = false
     trustExitCode = false
 [gerrit]
-	createchangeid = true
+    createchangeid = true
 [status]
     relativePaths = true

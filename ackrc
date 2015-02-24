@@ -1,0 +1,5 @@
+--text
+--type-set=gsp=.gsp
+--type-set=feature=.feature
+--ignore-dir=target
+--pager=less

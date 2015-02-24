@@ -15,7 +15,6 @@ au BufNewFile,BufRead *.md set ft=md
 au BufNewFile,BufRead *.md set textwidth=400
 
 " pretty colors
-so ~/.janus/ScrollColor.vim
 colo fruity
 
 " tree mode

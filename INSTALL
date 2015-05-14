@@ -16,8 +16,8 @@ hinstall() {
 
 hinstall bash_profile .bash_profile
 hinstall bashrc .bashrc
-hinstall fish_additions.fish .oh-my-fish/custom/my_fish_additions.load
 hinstall gitconfig .gitconfig
 hinstall tmux.conf .tmux.conf
 hinstall vimrc .vimrc
 hinstall gitignore_global .gitignore
+hinstall fish_additions.fish .oh-my-fish/custom/my_fish_additions.load

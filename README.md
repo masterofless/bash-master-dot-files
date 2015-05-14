@@ -3,7 +3,7 @@ bash-master-dot-files
 
 I love bash.  These things help.
 
-Update for 2014: I love fish!
+I now love fish also.
 
 Caveats
 -------

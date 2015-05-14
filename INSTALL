@@ -1,0 +1,23 @@
+#!/bin/bash -eux
+
+NOW=`date "+%Y-%m-%d-%H:%M:%S"`
+HERE=$PWD
+OLD=$HOME/.old_dot_files
+[[ -e $OLD ]] || mkdir $OLD
+
+hinstall() {
+    if [[ -e $HOME/$2 ]]; then
+        cp $HOME/$2 ${OLD}/${2//\//_}.${NOW}
+        rm $HOME/$2
+    fi
+    ln -s $HERE/$1 $HOME/$2
+}
+
+
+hinstall bash_profile .bash_profile
+hinstall bashrc .bashrc
+hinstall fish_additions.fish .oh-my-fish/custom/my_fish_additions.load
+hinstall gitconfig .gitconfig
+hinstall tmux.conf .tmux.conf
+hinstall vimrc .vimrc
+hinstall gitignore_global .gitignore

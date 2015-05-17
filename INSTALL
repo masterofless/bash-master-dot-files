@@ -20,4 +20,7 @@ hinstall gitconfig .gitconfig
 hinstall tmux.conf .tmux.conf
 hinstall vimrc .vimrc
 hinstall gitignore_global .gitignore
-hinstall fish_additions.fish .oh-my-fish/custom/my_fish_additions.load
+
+if [[ -d ~/.oh-my-fish ]]; then
+   hinstall fish_additions.fish .oh-my-fish/custom/my_fish_additions.load
+fi

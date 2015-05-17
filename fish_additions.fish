@@ -31,8 +31,6 @@ set PATH $HOME/Library/Haskell/bin $PATH
 # 
 alias be "bundle exec"
 alias bec "bundle exec cucumber"
-alias cas-ssh 'ssh -l afc40'
-alias cas-ve 'ssh -p 2210 -l afc40 ve.osddevcc.cas.org'
 alias df "df -h"
 alias dir "ls --color=auto --format=vertical"
 alias du "du -h"

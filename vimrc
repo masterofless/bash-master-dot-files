@@ -63,11 +63,12 @@ endfunction
 au BufRead *bash* set filetype=sh
 au BufRead,BufNewFile *.xml,*.feature,*.rb,*.js,*.html set tabstop=2 softtabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.md set ft=md textwidth=400 fde=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 fdm=expr tabstop=3 softtabstop=3 shiftwidth=3
-au BufRead,BufNewFile *.md setlocal spell spelllang=en_us
+au BufRead,BufNewFile *.md setlocal spell spelllang=en_us wrap
 au BufRead,BufNewFile *.g* set fdm=manual textwidth=0
 au BufRead,BufNewFile *.txt set filetype=text
 au BufRead,BufNewFile *.groovy set tabstop=3 softtabstop=3 shiftwidth=3
 au BufRead,BufNewFile *.snippets set expandtab
+au BufRead,BufNewFile *.yml set tabstop=2 softtabstop=2 shiftwidth=2
 
 map <leader>N :NERDTreeToggle<CR>
 noremap % v%

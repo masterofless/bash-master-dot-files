@@ -33,6 +33,7 @@ set tags=+.tags
 set ignorecase
 set hlsearch
 set nowrap
+set foldlevel=10
 
 let g:netrw_liststyle=3
 let g:netrw_sort_by="time"
@@ -60,15 +61,14 @@ function! StripTrailingWhitespaces()
 endfunction
 
 "au BufWritePre *.txt,*.java,*.xml,*.sh,*.rb :call <SID>StripTrailingWhitespaces()
-au BufRead *bash* set filetype=sh
-au BufRead,BufNewFile *.xml,*.feature,*.rb,*.js,*.html set tabstop=2 softtabstop=2 shiftwidth=2
-au BufRead,BufNewFile *.md set ft=md textwidth=400 fde=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 fdm=expr tabstop=3 softtabstop=3 shiftwidth=3
-au BufRead,BufNewFile *.md setlocal spell spelllang=en_us wrap
-au BufRead,BufNewFile *.g* set fdm=manual textwidth=0
-au BufRead,BufNewFile *.txt set filetype=text
-au BufRead,BufNewFile *.groovy set tabstop=3 softtabstop=3 shiftwidth=3
+au BufRead,BufNewFile *.sh,*bash* set filetype=sh
+au BufRead,BufNewFile *.md set ft=md textwidth=400 fde=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 fdm=expr spell spelllang=en_us wrap expandtab tabstop=4 softtabstop=4 shiftwidth=4
+au BufRead,BufNewFile *.js set ft=javascript expandtab tabstop=2 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.html set ft=html expandtab tabstop=2 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.g* set fdm=manual textwidth=0 tabstop=2 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.txt set filetype=text expandtab tabstop=4 softtabstop=4 shiftwidth=4
 au BufRead,BufNewFile *.snippets set expandtab
-au BufRead,BufNewFile *.yml set tabstop=2 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.yml set noai
 
 map <leader>N :NERDTreeToggle<CR>
 noremap % v%

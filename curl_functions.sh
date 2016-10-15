@@ -15,20 +15,3 @@ function wait_for_http() {
     echo ""
     echo "INFO: ${url} is alive"
 }
-
-function wait_for_elastic () {
-#   ELASTIC_HOST=${ELASTIC_HOST:-elastic}
-#   ELASTIC_PORT=${ELASTIC_PORT:-9200}
-    ELASTIC_HOSTPORT=http://${ELASTIC_HOSTPORT:-${ELASTIC_HOST}:${ELASTIC_PORT}}
-
-    wait_for_http $ELASTIC_HOSTPORT "Elastic"
-
-}
-
-function wait_for_wordpress () {
-#   WORDPRESS_HOST=${WORDPRESS_HOST:-wordpress}
-#   WORDPRESS_PORT=${WORDPRESS_PORT:-80}
-    WORDPRESS_HOSTPORT=http://${WORDPRESS_HOSTPORT:-${WORDPRESS_HOST}:${WORDPRESS_PORT}}
-
-    wait_for_http $WORDPRESS_HOSTPORT "Wordpress"
-}

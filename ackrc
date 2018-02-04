@@ -1,5 +1,7 @@
---text
+--pager=most
+--color
 --type-set=gsp=.gsp
 --type-set=feature=.feature
+--type-set=json=.json
 --ignore-dir=target
---pager=less
+--ignore-dir=node_modules

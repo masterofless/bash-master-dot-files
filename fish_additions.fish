@@ -1,36 +1,20 @@
-set CDPATH . ~ ~/Projects ~/Business ~/Pictures
+# Theme
+#omf install agnoster
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+set CDPATH . ~ ~/Projects
 
 set PATH ~/bin $PATH
-set PATH $PATH ~/.autojump/bin
-set PATH $HOME/Library/Haskell/bin $PATH
+set PATH $PATH /usr/local/sbin
 
-# Fish git prompt
-# set __fish_git_prompt_showdirtystate 'yes'
-# set __fish_git_prompt_showstashstate 'yes'
-# set __fish_git_prompt_showupstream 'yes'
-# set __fish_git_prompt_color_branch yellow
+#eval (direnv hook fish)
 
-# Status Chars
-# set __fish_git_prompt_char_dirtystate '*'
-# set __fish_git_prompt_char_stagedstate '>'
-# set __fish_git_prompt_char_stashstate '?'
-# set __fish_git_prompt_char_upstream_ahead '^'
-# set __fish_git_prompt_char_upstream_behind '\/'
-# 
-# function fish_prompt
-  # set last_status $status
-# 
-  # set_color $fish_color_cwd
-  # printf '%s' (prompt_pwd)
-  # set_color normal
-# 
-  # printf '%s ' (__fish_git_prompt)
-# 
-  # set_color normal
-# end
-# 
-alias be "bundle exec"
-alias bec "bundle exec cucumber"
+set -x LESS '-r' # send raw control chars through so I see color
+set -x PAGER most
+
+# enable homebrew to search github
+#set -x HOMEBREW_GITHUB_API_TOKEN 5694c403cf331b9625d1441c3778a2d73884d22c
+
 alias df "df -h"
 alias dir "ls --color=auto --format=vertical"
 alias du "du -h"
@@ -44,10 +28,17 @@ alias ll "ls -l"
 alias lola "git lola | head -30"
 alias lt 'ls -lt'
 alias lth 'ls -lt | head'
-alias m less
+alias m most
 alias vdir "ls --color=auto --format=long"
-alias vi vim
+alias vi nvim
 alias whence "type -a"
+alias kc kubectl
+alias kcp 'kubectl --namespace prod'
+alias kct 'kubectl --namespace test'
+alias kcd 'kubectl --namespace dev'
+alias kcccc 'kubectl config current-context'
+alias rebrew 'brew update; and brew outdated; and brew upgrade; and brew cleanup -s; and brew cask cleanup; and brew prune'
+alias savebrew 'bash -c \'(echo "brew list:"; brew list; echo; echo "brew cask list:"; brew cask list) > ~/Dropbox/BrewInstalledList\''
 
 function rebase
     for i in $argv;

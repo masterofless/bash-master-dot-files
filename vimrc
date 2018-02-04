@@ -63,13 +63,22 @@ endfunction
 "au BufWritePre *.txt,*.java,*.xml,*.sh,*.rb :call <SID>StripTrailingWhitespaces()
 au BufRead,BufNewFile *.sh,*bash* set filetype=sh
 au BufRead,BufNewFile *.md set ft=md textwidth=400 fde=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 fdm=expr spell spelllang=en_us wrap expandtab tabstop=4 softtabstop=4 shiftwidth=4
+au BufRead,BufNewFile *.css set wrap expandtab tabstop=4 softtabstop=4 shiftwidth=4
 au BufRead,BufNewFile *.js set ft=javascript expandtab tabstop=2 softtabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.html set ft=html expandtab tabstop=2 softtabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.g* set fdm=manual textwidth=0 tabstop=2 softtabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.txt set filetype=text expandtab tabstop=4 softtabstop=4 shiftwidth=4
 au BufRead,BufNewFile *.snippets set expandtab
 au BufRead,BufNewFile *.yml set noai
+au BufRead,BufNewFile *.adoc set ft=asciidoc
+au BufRead,BufNewFile *.tf set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 
 map <leader>N :NERDTreeToggle<CR>
 noremap % v%
 let NERDTreeWinSize=50
+map <leader>o :only<CR>
+map <leader>m :MRU<CR>
+map <leader>b :BufExplorer<CR>
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)

@@ -3,13 +3,13 @@ if [[ -z $MY_BASHRC_RAN ]]; then
 
     [[ -e /etc/bashrc ]] && source /etc/bashrc
 
+    export PATH=$PATH:/usr/local/sbin
     export GROOVY_HOME=/Applications/groovy-1.8.6
     export PATH=$PATH:$GROOVY_HOME/bin
     export GRAILS_HOME=/Applications/grails-2.1.0
     export PATH=$PATH:$GRAILS_HOME/bin
     export GLASSFISH_HOME=/usr/local/Cellar/glassfish/3.1.2
     export PATH=$PATH:$GLASSFISH_HOME/bin
-    export PATH="$HOME/.node/bin:$PATH"
     export HISTSIZE=5000
     export HISTFILESIZE=5000
     export EDITOR=vim

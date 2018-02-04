@@ -33,3 +33,6 @@
    relativePaths = true
 [color]
    ui = true
+[merge]
+   tool = vimdiff
+   conflictstyle = diff3

@@ -1,20 +1,25 @@
 execute pathogen#infect()
 
 ab teh the
+ab idff diff
 let mapleader = ","
 set background=dark
-colo gruvbox
+"colo gruvbox
 "colo candy
 "colo solarized
+"colo candycode
+colo dante
 syntax enable
 filetype plugin on
 
+setglobal nospell
+set nonu
 set printfont=Courier:h16
 setglobal textwidth=0
 set textwidth=0
 set smarttab
-set expandtab tabstop=3 softtabstop=3 shiftwidth=3
-set nu
+set expandtab tabstop=2 softtabstop=2 shiftwidth=2
+set clipboard=unnamed
 set ai
 set nobackup
 set noswapfile
@@ -61,24 +66,40 @@ function! StripTrailingWhitespaces()
 endfunction
 
 "au BufWritePre *.txt,*.java,*.xml,*.sh,*.rb :call <SID>StripTrailingWhitespaces()
-au BufRead,BufNewFile *.sh,*bash* set filetype=sh
-au BufRead,BufNewFile *.md set ft=md textwidth=400 fde=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 fdm=expr spell spelllang=en_us wrap expandtab tabstop=4 softtabstop=4 shiftwidth=4
-au BufRead,BufNewFile *.css set wrap expandtab tabstop=4 softtabstop=4 shiftwidth=4
-au BufRead,BufNewFile *.js set ft=javascript expandtab tabstop=2 softtabstop=2 shiftwidth=2
-au BufRead,BufNewFile *.html set ft=html expandtab tabstop=2 softtabstop=2 shiftwidth=2
-au BufRead,BufNewFile *.g* set fdm=manual textwidth=0 tabstop=2 softtabstop=2 shiftwidth=2
-au BufRead,BufNewFile *.txt set filetype=text expandtab tabstop=4 softtabstop=4 shiftwidth=4
-au BufRead,BufNewFile *.snippets set expandtab
-au BufRead,BufNewFile *.yml set noai
-au BufRead,BufNewFile *.adoc set ft=asciidoc
-au BufRead,BufNewFile *.tf set expandtab tabstop=2 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.sh,*bash* setlocal ft=sh nu
+au BufRead,BufNewFile *.md setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4 ft=markdown textwidth=400 fde=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 fdm=expr spell spelllang=en_us wrap
+au BufRead,BufNewFile *.css setlocal wrap expandtab tabstop=4 softtabstop=4 shiftwidth=4
+au BufRead,BufNewFile *.js setlocal ft=javascript expandtab tabstop=2 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.html setlocal ft=html expandtab tabstop=2 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.g* setlocal fdm=manual textwidth=0 tabstop=2 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.txt setlocal ft=text expandtab tabstop=4 softtabstop=4 shiftwidth=4
+au BufRead,BufNewFile *.py,*.php setlocal ft=python expandtab tabstop=4 softtabstop=4 shiftwidth=4 nu
+au BufRead,BufNewFile *.snippets setlocal expandtab
+au BufRead,BufNewFile *.yml,*.yaml setlocal noai expandtab tabstop=2 softtabstop=2 shiftwidth=2 ft=yaml
+au BufRead,BufNewFile *.adoc setlocal ft=asciidoc
+au BufRead,BufNewFile *.tf setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile Dockerfile setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.cs setlocal nu
+au BufRead,BufNewFile *.sql setlocal nu
+au BufRead,BufNewFile *.csv setlocal nu
+au BufRead,BufNewFile *.load setlocal nu
+au BufRead,BufNewFile *.xml setlocal wrap
+au BufRead,BufNewFile *.bal setlocal ft=bal nu expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 map <leader>N :NERDTreeToggle<CR>
 noremap % v%
 let NERDTreeWinSize=50
+
+" set up some key maps
 map <leader>o :only<CR>
 map <leader>m :MRU<CR>
 map <leader>b :BufExplorer<CR>
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+"map /  <Plug>(incsearch-forward)
+"map ?  <Plug>(incsearch-backward)
+"map g/ <Plug>(incsearch-stay)
+"
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <M-[> <Esc>
+  tnoremap <C-v><Esc> <Esc>
+endif

@@ -1,6 +1,6 @@
 [user]
    name = Andy Cohan
-   email = andy@cohan.org
+   email = cohana@avalonconsult.com
 [core]
    filemode = false
    autocrlf = false
@@ -11,7 +11,7 @@
 [alias]
    amend = commit --amend
    atop = commit --amend -C HEAD
-   br = branch
+   br = !git --no-pager branch
    ci = commit
    co = checkout
    dif = diff --name-status
@@ -36,3 +36,5 @@
 [merge]
    tool = vimdiff
    conflictstyle = diff3
+[push]
+   default = current

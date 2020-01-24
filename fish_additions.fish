@@ -4,11 +4,13 @@
 #test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 set CDPATH . ~ ~/Avalon ~/Projects
 
-set PATH ~/bin $PATH
-set PATH $PATH /usr/local/sbin
-set PATH $PATH ~/Applications/google-cloud-sdk/bin/
-set PATH $PATH /usr/local/opt/gettext/bin
-set PATH $PATH (go env GOPATH)/bin
+set -x PATH ~/bin $PATH
+set -x PATH $PATH /usr/local/sbin
+set -x PATH $PATH ~/Applications/google-cloud-sdk/bin/
+set -x PATH $PATH /usr/local/opt/gettext/bin
+
+set -x GOPATH ~/go
+set -x PATH $PATH $GOPATH/bin
 
 set -x LESS '-r' # send raw control chars through so I see color
 # b/c for some reason this is the only one that shows me line 1 of files on this machine
@@ -42,15 +44,9 @@ alias vdir "ls --color=auto --format=long"
 alias vi nvim
 alias whence "type -a"
 alias kc kubectl
-#alias kcp 'kubectl --namespace prod'
-alias kct 'kubectl --namespace test'
-alias kcd 'kubectl --namespace dev'
-alias kca 'kubectl --namespace afc'
 alias kcccc 'kubectl config current-context'
 alias rebrew 'brew update; and brew outdated; and brew upgrade; and brew cleanup -s; and brew cask cleanup; and brew prune'
 alias savebrew 'bash -c \'(echo "brew list:"; brew list; echo; echo "brew cask list:"; brew cask list) > ~/Dropbox/BrewInstalledListAvalon\''
-alias gbs 'gcloud builds submit'
-alias gbl 'gcloud builds list'
 
 function rebase
     for i in $argv;

@@ -1,5 +1,5 @@
 execute pathogen#infect()
-
+set laststatus=2
 ab teh the
 ab idff diff
 let mapleader = ","
@@ -11,7 +11,6 @@ set background=dark
 colo dante
 syntax enable
 filetype plugin on
-
 setglobal nospell
 set nonu
 set printfont=Courier:h16
@@ -85,6 +84,7 @@ au BufRead,BufNewFile *.csv setlocal nu
 au BufRead,BufNewFile *.load setlocal nu
 au BufRead,BufNewFile *.xml setlocal wrap
 au BufRead,BufNewFile *.bal setlocal ft=bal nu expandtab tabstop=4 softtabstop=4 shiftwidth=4
+au BufRead,BufNewFile *.go setlocal ft=go nu tabstop=4 softtabstop=4 shiftwidth=4
 
 map <leader>N :NERDTreeToggle<CR>
 noremap % v%

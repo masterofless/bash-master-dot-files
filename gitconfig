@@ -36,5 +36,7 @@
 [merge]
    tool = vimdiff
    conflictstyle = diff3
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [push]
    default = current

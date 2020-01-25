@@ -1,5 +1,6 @@
 --pager=most
 --color
+--follow
 --type-set=gsp=.gsp
 --type-set=feature=.feature
 --type-set=json=.json

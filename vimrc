@@ -1,5 +1,4 @@
 execute pathogen#infect()
-set laststatus=2
 ab teh the
 ab idff diff
 let mapleader = ","
@@ -7,8 +6,8 @@ set background=dark
 "colo gruvbox
 "colo candy
 "colo solarized
-"colo candycode
-colo dante
+colo candycode
+"colo dante
 syntax enable
 filetype plugin on
 setglobal nospell
@@ -17,8 +16,9 @@ set printfont=Courier:h16
 setglobal textwidth=0
 set textwidth=0
 set smarttab
-set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 set clipboard=unnamed
+set expandtab tabstop=3 softtabstop=3 shiftwidth=3
+set nonu
 set ai
 set nobackup
 set noswapfile
@@ -67,6 +67,7 @@ endfunction
 "au BufWritePre *.txt,*.java,*.xml,*.sh,*.rb :call <SID>StripTrailingWhitespaces()
 au BufRead,BufNewFile *.sh,*bash* setlocal ft=sh nu
 au BufRead,BufNewFile *.md setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4 ft=markdown textwidth=400 fde=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 fdm=expr spell spelllang=en_us wrap
+"au BufRead,BufNewFile *.md set ft=md textwidth=400 fde=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 fdm=expr spell spelllang=en_us wrap expandtab tabstop=4 softtabstop=4 shiftwidth=4
 au BufRead,BufNewFile *.css setlocal wrap expandtab tabstop=4 softtabstop=4 shiftwidth=4
 au BufRead,BufNewFile *.js setlocal ft=javascript expandtab tabstop=2 softtabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.html setlocal ft=html expandtab tabstop=2 softtabstop=2 shiftwidth=2
@@ -103,3 +104,7 @@ if has('nvim')
   tnoremap <M-[> <Esc>
   tnoremap <C-v><Esc> <Esc>
 endif
+" per Tim Pope flagship plugin
+set laststatus=2
+set showtabline=2
+set guioptions-=e

@@ -17,14 +17,15 @@ set -x LESS '-r' # send raw control chars through so I see color
 set -x PAGER most
 set -x VISUAL nvim
 set -x EDITOR nvim
-eval (direnv hook fish)
 
 # set up awscli completion
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
 # enable homebrew to search github
 #set -x HOMEBREW_GITHUB_API_TOKEN 5694c403cf331b9625d1441c3778a2d73884d22c
+set -x HOMEBREW_GITHUB_API_TOKEN 8656f624e11031d356593e064dca6d1c2e436a1b
 
+alias vi nvim
 alias df "df -h"
 alias du "du -h"
 alias gb "git branch"
@@ -38,15 +39,11 @@ alias la 'ls -a'
 alias ll "ls -l"
 alias lt 'ls -lt'
 alias lth 'ls -lt | head'
-alias dir "ls --color=auto --format=vertical"
 alias m most
-alias vdir "ls --color=auto --format=long"
-alias vi nvim
 alias whence "type -a"
 alias kc kubectl
-alias kcccc 'kubectl config current-context'
 alias rebrew 'brew update; and brew outdated; and brew upgrade; and brew cleanup -s; and brew cask cleanup; and brew prune'
-alias savebrew 'bash -c \'(echo "brew list:"; brew list; echo; echo "brew cask list:"; brew cask list) > ~/Dropbox/BrewInstalledListAvalon\''
+alias savebrew 'bash -c \'(echo "brew list:"; brew list; echo; echo "brew cask list:"; brew cask list) > ~/Dropbox/BrewInstalledListPersonal\''
 
 function rebase
     for i in $argv;
@@ -71,16 +68,17 @@ function knuke
     for p in (kcd get pods | grep "$argv" | perl -pe 's/ .*//'); kcd delete pod $p; end
 end
 
-function fish_right_prompt
-  if test -n "$K8S_DIR"
-    set color FF0
-    kubectl config current-context
-    if test -n "$GCP_PROJECT_ID"
-      echo " | "
-      gcloud config --format json list core/project | jq -r .core.project
-    end
-    set color normal
-  else
-    echo ""
-  end
-end
+# function fish_right_prompt
+#   if test -n "$K8S_DIR"
+#     set color FF0
+#     kubectl config current-context
+#     if test -n "$GCP_PROJECT_ID"
+#       echo " | "
+#       gcloud config --format json list core/project | jq -r .core.project
+#     end
+#     set color normal
+#   else
+#     echo ""
+#   end
+# end
+eval (direnv hook fish)
